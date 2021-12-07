@@ -26,5 +26,15 @@ def select_all():
     for row in results:
         animal = Animal(row['name'], row['type'], row['staff_id'])
         animals.append(animal)
-
     return animals
+
+
+def select(id):
+    result = None
+    sql = "SELECT * FROM animals WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        animal = Animal(result['name'], result['type'], result['staff_id'])
+    return animal
