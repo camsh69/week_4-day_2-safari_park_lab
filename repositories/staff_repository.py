@@ -28,3 +28,15 @@ def select_all():
                              row['department'], row['performance'])
         staff.append(staff_member)
     return staff
+
+
+def select(id):
+    staff_member = None
+    sql = "SELECT * FROM staff WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        staff_member = Staff(result['name'], result['start_date'],
+                             result['department'], result['performance'], result['id'])
+    return staff_member
