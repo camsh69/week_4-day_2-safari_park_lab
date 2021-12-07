@@ -15,5 +15,11 @@ staff_repo.save(staff3)
 # for staff in all_staff:
 #     print(staff.name)
 
-staff_member = staff_repo.select(2)
-print(staff_member.name)
+# staff_member = staff_repo.select(2)
+# print(staff_member.name)
+
+staff_repo.delete(3)
+
+all_staff = staff_repo.select_all()
+for staff in all_staff:
+    print(staff.name)

@@ -40,3 +40,8 @@ def select(id):
         staff_member = Staff(result['name'], result['start_date'],
                              result['department'], result['performance'], result['id'])
     return staff_member
+
+def delete(id):
+    sql = "DELETE FROM staff WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
