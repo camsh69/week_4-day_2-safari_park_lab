@@ -41,5 +41,9 @@ animals_repo.save(animal5)
 # for animal in all_animals:
 #     print(animal.name)
 
-animal = animals_repo.select(2)
-print(animal.name)
+# animal = animals_repo.select(2)
+# print(animal.name)
+
+list_of_animals = animals_repo.looked_after_by(2)
+for animal in list_of_animals:
+    print(animal.name)

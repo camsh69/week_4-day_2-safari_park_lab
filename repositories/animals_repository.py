@@ -38,3 +38,15 @@ def select(id):
     if result is not None:
         animal = Animal(result['name'], result['type'], result['staff_id'])
     return animal
+
+
+def looked_after_by(staff_id):
+    animals = []
+    sql = "SELECT * FROM animals WHERE staff_id = %s"
+    values = [staff_id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        animal = Animal(row['name'], row['type'], row['staff_id'])
+        animals.append(animal)
+    return animals
