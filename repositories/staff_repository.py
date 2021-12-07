@@ -15,3 +15,16 @@ def save(staff_member):
     id = results[0]['id']
     staff_member.id = id
     return staff_member
+
+
+def select_all():
+    staff = []
+
+    sql = "SELECT * FROM staff"
+    results = run_sql(sql)
+
+    for row in results:
+        staff_member = Staff(row['name'], row['start_date'],
+                             row['department'], row['performance'])
+        staff.append(staff_member)
+    return staff

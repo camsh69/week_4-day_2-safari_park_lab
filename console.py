@@ -9,3 +9,7 @@ staff_repo.save(staff1)
 
 staff2 = Staff("Jane Bloggs", "21/03/2019", "Apes", 4)
 staff_repo.save(staff2)
+
+all_staff = staff_repo.select_all()
+for staff in all_staff:
+    print(staff.name)
